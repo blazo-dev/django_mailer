@@ -9,7 +9,7 @@ from .models import NewsletterUser
 # Create your views here.
 
 
-def newsletter_signup(request):
+def newsletter_subscribe(request):
     form = NewsletterUserForm(request.POST or None)
 
     if form.is_valid():

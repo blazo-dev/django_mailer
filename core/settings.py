@@ -50,6 +50,8 @@ INSTALLED_APPS = [
 
 TAILWIND_APP_NAME = 'theme'
 
+NPM_BIN_PATH = '/run/user/1000/fnm_multishells/8683_1697850611114/bin/npm'
+
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
