@@ -1,16 +1,16 @@
 from django.core.checks import messages
 from django.conf import settings
 from django.template.loader import render_to_string
-from django.core.mail import send_mail, EmailMessage
+from django.core.mail import EmailMessage
 from django.shortcuts import render
-from .forms import NewsletterUserSignUpForm
+from .forms import NewsletterUserForm
 from .models import NewsletterUser
 
 # Create your views here.
 
 
 def newsletter_signup(request):
-    form = NewsletterUserSignUpForm(request.POST or None)
+    form = NewsletterUserForm(request.POST or None)
 
     if form.is_valid():
         instance = form.save(commit=False)
@@ -18,7 +18,8 @@ def newsletter_signup(request):
             messages.warning(request, "Email already exists!")
         else:
             instance.save()
-            messages.success(request, "We sent an email with some nice stuff!")
+            messages.success(
+                request, "Subscribe successful! Thank you for choosing to stay connected with us.")
 
             # Building email
             subject = "Law book"
@@ -38,3 +39,20 @@ def newsletter_signup(request):
             message.send()
     context = {"form": form}
     return render(request, 'welcome.html', context)
+
+
+def newsletter_unsubscribe(request):
+    form = NewsletterUserForm(request.POST or None)
+
+    if form.is_valid():
+        instance = form.save(commit=False)
+        posible_user = NewsletterUser.objects.filter(email=instance.email)
+        if posible_user.exists():
+            posible_user.delete()
+            messages.success("Unsubscribe successful.")
+        else:
+            print("Email not found")
+            messages.error("Email not found.")
+
+    context = {"form": form}
+    return render(request, "unsubscribe.html", context)
