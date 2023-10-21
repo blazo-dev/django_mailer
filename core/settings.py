@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core",
+    "newsletter",
     "tailwind",
     "theme"
 ]
@@ -52,6 +53,8 @@ TAILWIND_APP_NAME = 'theme'
 INTERNAL_IPS = [
     "127.0.0.1",
 ]
+
+EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
