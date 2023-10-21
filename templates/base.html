@@ -4,9 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Newlaz - Mailer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
     {% tailwind_css %}
   </head>
-  <body>
+  <body
+    class="bg-[#191717] font-body h-[100vh] flex justify-center items-center"
+  >
     {% block content %}{% endblock content %}
   </body>
 </html>

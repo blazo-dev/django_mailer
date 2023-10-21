@@ -38,7 +38,7 @@ def newsletter_subscribe(request):
             message.content_subtype = "html"
             message.send()
     context = {"form": form}
-    return render(request, 'welcome.html', context)
+    return render(request, 'subscribe.html', context)
 
 
 def newsletter_unsubscribe(request):

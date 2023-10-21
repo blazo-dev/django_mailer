@@ -3,10 +3,10 @@
   class="grid gap-6 max-w-[850px] w-[90%] mx-auto bg-[#252222] p-7 md:p-10 rounded shadow-lg"
 >
   <h1 class="text-3xl md:text-5xl text-sky-500 font-bold capitalize">
-    Cancelar Suscripción
+    Nuestro Newsletter
   </h1>
   <p class="text-lg md:text-2xl text-[#c0b9ba]">
-    ¡Adiós por ahora! Espero que tus próximas aventuras estén llenas de éxitos.
+    ¡Mantente al tanto de las últimas novedades de programación!
   </p>
   <form class="grid gap-6 m-0" method="POST">
     {% csrf_token %}
@@ -17,14 +17,14 @@
       autocomplete="off"
       type="email"
       id="email"
-      class="w-full text-[#c0b9ba]/20 focus:text-[#c0b9ba] md:text-xl px-4 bg-[#191717]/50 py-4 rounded border border-transparent border-b-sky-500 placeholder:text-sky-500/25 focus:outline-none active:outline-none transition-colors duration-300"
+      class="w-full text-[#c0b9ba]/20 focus:text-[#c0b9ba] md:text-xl px-4 bg-[#191717]/50 py-4 rounded border border-transparent border-b-sky-500 placeholder:text-sky-500/25 focus:outline-none"
       placeholder="correo@example.com"
     />
     <button
-      class="bg-transparent md:text-xl border-2 border-sky-500 hover:bg-sky-900/50 active:bg-sky-500 active:text-[#252222] transition-colors duration-300 text-sky-500 font-bold py-2 px-4 rounded"
+      class="bg-transparent md:text-xl border-2 border-sky-500 hover:bg-sky-900/50 active:bg-sky-500 active:text-[#252222] transition-colors duration-300 text-sky-500 font-bold py-2 px-4 rounded focus:outline-8"
       type="submit"
     >
-      Cancelar suscripción
+      Suscribirse
     </button>
   </form>
 </div>
