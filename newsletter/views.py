@@ -1,4 +1,4 @@
-from django.core.checks import messages
+from django.contrib import messages
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
@@ -11,6 +11,8 @@ from .models import NewsletterUser
 
 def newsletter_subscribe(request):
     form = NewsletterUserForm(request.POST or None)
+
+    print(form)
 
     if form.is_valid():
         instance = form.save(commit=False)
@@ -25,7 +27,7 @@ def newsletter_subscribe(request):
             subject = "Law book"
             from_email = settings.EMAIL_HOST_USER
             to_email = [instance.email]
-            html_template = "newsletter/email_template/welcome.html"
+            html_template = "newsletter/email_templates/welcome.html"
             html_message = render_to_string(html_template)
 
             message = EmailMessage(
@@ -49,10 +51,10 @@ def newsletter_unsubscribe(request):
         posible_user = NewsletterUser.objects.filter(email=instance.email)
         if posible_user.exists():
             posible_user.delete()
-            messages.success("Unsubscribe successful.")
+            messages.success(request, "Unsubscribe successful.")
         else:
             print("Email not found")
-            messages.error("Email not found.")
+            messages.error(request, "Email not found.")
 
     context = {"form": form}
     return render(request, "unsubscribe.html", context)

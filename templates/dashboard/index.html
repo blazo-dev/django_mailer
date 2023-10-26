@@ -1,0 +1,20 @@
+{% extends "base.html" %} {% block content %}
+
+<main class="flex text-[#c0b9ba] bg-[#252222]">
+  <nav class="bg-sky-500">
+    <ul class="grid">
+      <li>
+        <a href="{% url "dashboard:home" %}" class="block text-white hover:bg-sky-600 transition-colors duration-300 p-4">Home</a>
+      </li>
+      <li>
+        <a href="{% url "newsletter:subscribe" %}" class="block text-white hover:bg-sky-600 transition-colors duration-300 p-4">Newsletter</a>
+      </li>
+    </ul>
+  </nav>
+
+  <section class="flex-1 p-4">
+    <h1 class="text-4xl font-bold">Dashboard Home</h1>
+    <p>Bienvenido al panel de control.</p>
+  </section>
+</main>
+{% endblock content %}

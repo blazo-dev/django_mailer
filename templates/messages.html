@@ -1,0 +1,21 @@
+{% load static %}
+
+{% if messages %} {% for message in messages %}
+<dialog
+  class="grid gap-4 justify-start justify-items-start text-white border-2 border-sky-500 bg-[#191717]/50 backdrop-blur-md backdrop-opacity-90 rounded-md shadow-md p-4"
+  id="modal"
+>
+  <h2 class="text-2xl md:text-4xl font-bold capitalize text-sky-500">
+    {{ message.tags }}
+  </h2>
+  <p class="text-lg md:text-2xl text-gray-300">{{ message }}</p>
+  <button
+    class="bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-4 rounded transition-color duration-300"
+    id="closeButton"
+  >
+    Close
+  </button>
+  <script src="{% static "js/modal.js" %}"></script>
+</dialog>
+{% endfor %}
+{% endif %}

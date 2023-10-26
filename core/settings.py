@@ -32,6 +32,7 @@ DEBUG = os.environ.get('DEBUG')
 
 ALLOWED_HOSTS = ["*"]
 
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Application definition
 
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "core",
+    "dashboard",
     "newsletter",
     "tailwind",
     "theme"
@@ -50,7 +52,7 @@ INSTALLED_APPS = [
 
 TAILWIND_APP_NAME = 'theme'
 
-NPM_BIN_PATH = '/run/user/1000/fnm_multishells/8683_1697850611114/bin/npm'
+NPM_BIN_PATH = '/run/user/1000/fnm_multishells/261582_1698285285570/bin/npm'
 
 INTERNAL_IPS = [
     "127.0.0.1",
@@ -134,7 +136,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static/'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
